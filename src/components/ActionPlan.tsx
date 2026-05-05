@@ -76,6 +76,7 @@ export default function ActionPlan({ actionItems, onActionChange }: ActionPlanPr
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
             className="glass-card rounded-2xl p-5 sm:p-6"
           >
             <div className="flex items-center gap-2 mb-4">

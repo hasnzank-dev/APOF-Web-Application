@@ -18,7 +18,8 @@ export default function Header() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-500/10 border border-accent-500/20 mb-8"
+          whileHover={{ scale: 1.05 }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-500/10 border border-accent-500/20 mb-8 cursor-default"
         >
           <Target className="w-4 h-4 text-accent-400" />
           <span className="text-sm font-medium text-accent-400 tracking-wide">
@@ -53,8 +54,20 @@ export default function Header() {
           <span className="text-emerald-400 font-medium">Funnel</span>.
         </motion.p>
 
-        {/* Decorative glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-500/5 rounded-full blur-3xl pointer-events-none" />
+        {/* Decorative floating glow */}
+        <motion.div 
+          animate={{ 
+            y: [0, -20, 0],
+            opacity: [0.5, 0.8, 0.5],
+            scale: [1, 1.05, 1]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-500/5 rounded-full blur-3xl pointer-events-none" 
+        />
       </div>
     </header>
   );

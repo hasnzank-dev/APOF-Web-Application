@@ -141,10 +141,12 @@ export default function CategoryCard({ category, score, onScoreChange, index }: 
           </p>
           <div className="flex gap-2 sm:gap-3">
             {[1, 2, 3, 4, 5].map((value) => (
-              <button
+              <motion.button
                 key={value}
+                whileHover={{ scale: score === value ? 1.05 : 1.02 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => onScoreChange(value)}
-                className={`score-btn flex-1 h-14 sm:h-16 rounded-xl font-display font-bold text-xl sm:text-2xl cursor-pointer transition-all duration-200
+                className={`score-btn flex-1 h-14 sm:h-16 rounded-xl font-display font-bold text-xl sm:text-2xl cursor-pointer transition-colors duration-200
                   ${
                     score === value
                       ? `${colors.activeBg} text-white shadow-lg ${colors.glow} active`
@@ -152,7 +154,7 @@ export default function CategoryCard({ category, score, onScoreChange, index }: 
                   }`}
               >
                 {value}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
